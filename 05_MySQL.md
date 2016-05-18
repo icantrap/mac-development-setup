@@ -38,13 +38,13 @@ $ ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 Otherwise, you can start MySQL by running
 
 ```shell
-$ mysql.server start
+$ brew services start mysql
 ```
 
 and stop by running
 
 ```shell
-$ mysql.server stop
+$ brew services stop mysql
 ```
 
 ## SQL Client
