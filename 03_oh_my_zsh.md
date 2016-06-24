@@ -75,4 +75,4 @@ Once these fonts are installed, you can use them in your terminal to make sure P
 
 And the final product ...
 
-![iTerm with Powerline](assets/iterm_powerlinegit credential-osxkeychain.jpg)
+![iTerm with Powerline](assets/iterm_powerline.jpg)

@@ -51,7 +51,7 @@ Install your favorite extensions, such as:
 
 File sharing software. 1Password password manager provides syncing via Dropbox, so I install Dropbox first.
 
-1. (Download)[https://www.dropbox.com/downloading?src=index] and install.
+1. [Download](https://www.dropbox.com/downloading?src=index) and install.
 2. Follow the instructions to setup your Dropbox folder.
 
 ## 1Password
