@@ -7,6 +7,7 @@ Read the documentation for lots more details.
 ## Installation
 
 ### zsh
+Use homebrew to install a current version of zsh.
 
 ```shell
 $ brew install zsh
@@ -20,6 +21,34 @@ $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools
 
 The installer will ask for your password. This is so it can make zsh your default shell. After that's done, kill off your shell.terminal. When you restart it, zsh will be your new default shell.
 
+#### Default shell
+
+if the installer doesn't successfully change your default shell, do the the following. Otherwise, skip to the next section.
+
+Edit the `/etc/shells` file adding the path for zsh before any that are already there.
+
+```shell
+$ sudo vi /etc/shells
+```
+
+```
+# /etc/shells
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/usr/local/bin/zsh
+/bin/zsh
+```
+
+Finally, change your default shell to zsh.
+
+```bash
+$ chsh -s $(which zsh)
+```
+
+#### .zshrc
 
 Read through the `~/.zshrc` file it creates for you. It is well commented and tells you how to change your theme and/or plugins. For instance, you can add the Homebrew plugin to tab completion for `brew` commands.
 
@@ -31,13 +60,18 @@ Read through the `~/.zshrc` file it creates for you. It is well commented and te
 plugins=(brew git)
 ```
 
-Use
+## agnoster theme (optional)
+
+The [agnoster](https://github.com/agnoster/agnoster-zsh-theme) theme is included with oh-my-zsh. You can set it in your new .zshrc file.
 
 ```shell
-$ source ~.zhrc
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
 ```
 
-### Powerline (optional)
+### Powerline
 
 To install Powerline, we'll install Python (via Homebrew) first.
 
@@ -57,7 +91,7 @@ Do `source ~.zhrc` to reload your shell.
 
 Note. Powerline can be used with bash, as well. Read the [documentation](https://powerline.readthedocs.org).
 
-### Powerline Fonts (optional)
+### Powerline Fonts
 
 In some cases, the fonts you're used to don't work well with Powerline. If that's the case, you can install [patched fonts](https://github.com/powerline/fonts) that will look good and display special characters.
 
@@ -76,3 +110,14 @@ Once these fonts are installed, you can use them in your terminal to make sure P
 And the final product ...
 
 ![iTerm with Powerline](assets/iterm_powerline.jpg)
+
+## Dev Tools
+
+Shell-based dev tools often rely on the shell initialization script. You'll need to manually restore those in your `.zshrc` file. Examples include:
+
+* nvm
+* rvm
+* rbenv
+* autoenv
+
+Basically, look through your bash startup scripts and put equivalent stuff in your zsh statup script.
